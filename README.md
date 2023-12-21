@@ -11,3 +11,12 @@
 4. Git
 > git config --global user.name "Tan Do"
 > git config --global user.email tan@ix.com
+
+5. Start a app
+5.1 run cmd
+> python manage.py startapp home
+5.2 declare in Project's settings.py
+5.3 routing
+- Project's urls.py
+- App's urls.py
+5.4 views
