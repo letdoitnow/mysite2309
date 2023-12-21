@@ -6,4 +6,8 @@
 > python -m django startproject mysite .
 
 3. Run server
-> python manage.py runserver 8000
+> python manage.py runserver 
+
+4. Git
+> git config --global user.name "Tan Do"
+> git config --global user.email tan@ix.com
