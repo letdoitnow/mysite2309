@@ -3,23 +3,10 @@
 {% block content %}
 <h1>Blog List Page</h1>
 
-<h3>tieu de 1</h3>
-<p>noi dung tom tat 1</p>
+{% for item in posts %}
+<h3>{{ item.title }}</h3>
+<p>{{ item.summary }}</p>
 <hr/>
+{% endfor %}
 
-<h3>tieu de 2</h3>
-<p>noi dung tom tat 2</p>
-<hr/>
-
-<h3>tieu de 3</h3>
-<p>noi dung tom tat 3</p>
-<hr/>
-
-<h3>tieu de 4</h3>
-<p>noi dung tom tat 4</p>
-<hr/>
-
-<h3>tieu de 5</h3>
-<p>noi dung tom tat 5</p>
-<hr/>
 {% endblock content %}
