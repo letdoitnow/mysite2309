@@ -1,0 +1,5 @@
+[client]
+database = mysite2
+user = root
+password = root
+default-character-set = utf8

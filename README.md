@@ -26,3 +26,6 @@ GitHub:
 
 > git clone https://github.com/letdoitnow/mysite2309
 > git pull
+
+6. Database
+> python3 manage.py migrate
