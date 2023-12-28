@@ -23,3 +23,6 @@
 
 GitHub:
 > https://github.com/letdoitnow/mysite2309
+
+> git clone https://github.com/letdoitnow/mysite2309
+> git pull
