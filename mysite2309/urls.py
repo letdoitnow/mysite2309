@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('home.urls')),
     path('tin-tuc/', include('news.urls')),
     path('blog/', include('blog.urls')),
+    path('san-pham/', include('product.urls')),
 ]

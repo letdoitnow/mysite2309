@@ -1,0 +1,13 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<h1>Danh sach san pham</h1>
+<hr/>
+
+{% for item in product_list %}
+<p>{{ item.product_name }}</p>
+<p>{{ item.price }}</p>
+<hr/>
+{% endfor %}
+
+{% endblock %}
