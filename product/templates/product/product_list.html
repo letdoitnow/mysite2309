@@ -5,7 +5,7 @@
 <hr/>
 
 {% for item in product_list %}
-<p>{{ item.product_name }}</p>
+<p><a href="/san-pham/detail/{{item.id}}">{{ item.product_name }}</a></p>
 <p>{{ item.price }}</p>
 <hr/>
 {% endfor %}
