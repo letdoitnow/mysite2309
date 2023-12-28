@@ -1,6 +1,7 @@
 {% extends "home/base.html" %}
 
 {% block content %}
+
 <h1>Thong tin chi tiet san pham</h1>
 <hr/>
 
@@ -8,5 +9,7 @@
 <p>{{ product_name }}</p>
 <p>{{ price }}</p>
 <p>{{ description }}</p>
+
+<a href="{% url 'product:product_list' %}">Quay lai danh sach</a>
 
 {% endblock %}
