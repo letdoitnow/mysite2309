@@ -28,4 +28,7 @@ GitHub:
 > git pull
 
 6. Database
-> python3 manage.py migrate
+> python manage.py migrate
+
+7. Admin
+> python manage.py createsuperuser
