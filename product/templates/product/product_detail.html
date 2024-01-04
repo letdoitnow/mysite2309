@@ -5,13 +5,17 @@
 <h1>Thong tin chi tiet san pham</h1>
 <hr/>
 
-<p>{{ product.id }}</p>
-<p>{{ product.product_name }}</p>
+<h3>{{ product.product_name }}</h3>
 <p>{{ product.summary }}</p>
 <p>{{ product.price }}</p>
 <p>{{ product.quantity }}</p>
 <p>{{ product.description }}</p>
 
+{% if product.image %}
+<image src="{{ product.image.url }}" alt="{{ product.product_name }}" />
+{% endif %}
+
+<br/>
 <a href="{% url 'product:product_list' %}">Quay lai danh sach</a>
 
 {% endblock %}
