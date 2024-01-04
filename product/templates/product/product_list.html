@@ -6,6 +6,8 @@
 
 {% for item in product_list %}
 <p><a href="{% url 'product:product_detail' item.id %}">{{ item.product_name }}</a></p>
+<p>{{ item.summary }}</p>
+<p>{{ item.quantity }}</p>
 <p>{{ item.price }}</p>
 <hr/>
 {% endfor %}

@@ -15,10 +15,8 @@ def product_list(request):
 
 def product_detail(request, id):
     # return HttpResponse("Product detail")
+    product = ProductModel.objects.get(id=id)
     context = {
-        "id": id,
-        "product_name": "tivi samsung",
-        "price": 20000000,
-        "description": "tivi han quoc",
+        "product": product
     }
     return render(request, "product/product_detail.html", context)

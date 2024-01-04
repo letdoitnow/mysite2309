@@ -5,10 +5,12 @@
 <h1>Thong tin chi tiet san pham</h1>
 <hr/>
 
-<p>{{ id }}</p>
-<p>{{ product_name }}</p>
-<p>{{ price }}</p>
-<p>{{ description }}</p>
+<p>{{ product.id }}</p>
+<p>{{ product.product_name }}</p>
+<p>{{ product.summary }}</p>
+<p>{{ product.price }}</p>
+<p>{{ product.quantity }}</p>
+<p>{{ product.description }}</p>
 
 <a href="{% url 'product:product_list' %}">Quay lai danh sach</a>
 
