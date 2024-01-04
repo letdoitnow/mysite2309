@@ -32,3 +32,7 @@ GitHub:
 
 7. Admin
 > python manage.py createsuperuser
+
+8. Model
+> python manage.py makemigrations
+> python manage.py migrate
