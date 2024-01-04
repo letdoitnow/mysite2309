@@ -10,7 +10,7 @@ class ProductModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     delete_flg = models.BooleanField(default=False)
-    image = models.ImageField(null=True)
+    image = models.ImageField(null=True, upload_to="images/")
 
     def __str__(self):
         return f"{self.product_name},{self.quantity},{self.price}"
