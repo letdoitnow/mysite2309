@@ -8,14 +8,14 @@ def product_list(request):
     product_list = ProductModel.objects.all()
 
     context = {
-        'product_list': product_list
+        "product_list": product_list
     }
 
     return render(request, "product/product_list.html", context)
 
 def product_detail(request, id):
     # return HttpResponse("Product detail")
-    product = ProductModel.objects.get(id=id)
+    product = ProductModel.objects.get(pk=id)
     context = {
         "product": product
     }
