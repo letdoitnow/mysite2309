@@ -1,22 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import ProductModel
 
 # Create your views here.
 def product_list(request):
     # return HttpResponse("Product list")
+    product_list = ProductModel.objects.all()
+
     context = {
-        'product_list': [
-            {
-                "id": 1,
-                "product_name": "tivi samsung",
-                "price": 20000000,
-            },
-            {
-                "id": 2,
-                "product_name": "tivi xiaomi",
-                "price": 15000000,
-            },
-        ]
+        'product_list': product_list
     }
 
     return render(request, "product/product_list.html", context)
