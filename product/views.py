@@ -5,7 +5,7 @@ from .models import ProductModel
 # Create your views here.
 def product_list(request):
     # return HttpResponse("Product list")
-    product_list = ProductModel.objects.all()
+    product_list = ProductModel.objects.all().order_by("-created_at")
 
     context = {
         "product_list": product_list
