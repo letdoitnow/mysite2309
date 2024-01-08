@@ -11,13 +11,23 @@
 <p>{{ item.price }}</p>
 
 {% if item.image %}
+<p>Image:
 <image src="{{ item.image.url }}" alt="{{ item.product_name }}" />
+</p>
 {% endif %}
 
 <br/>
 
 {% if item.file %}
+<p>File:
 <a href="{{ item.file.url }}" target="_blank">{{ item.file }}</a>
+</p>
+{% endif %}
+
+{% if item.url %}
+<p>Video:
+<iframe width="560" height="315" src="{{ item.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
 {% endif %}
 
 <hr/>
