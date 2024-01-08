@@ -31,7 +31,9 @@ def product_list(request):
 
     #3 lay cac san pham ma ngay tao >=2023 va so luong > 10
     # product_list = ProductModel.objects.filter(created_at__year__gte=2023, quantity__gt=10)
+    # product_list = ProductModel.objects.filter(created_at__year__gte=2023).filter(quantity__gt=10)
     # product_list = ProductModel.objects.filter( Q(created_at__year__gte=2023) & Q(quantity__gt=10) )
+
 
     context = {
         "product_list": product_list
