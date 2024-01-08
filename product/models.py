@@ -11,6 +11,7 @@ class ProductModel(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     delete_flg = models.BooleanField(default=False)
     image = models.ImageField(null=True, upload_to="images/")
+    file = models.FileField(null=True, upload_to="files/")
 
     def __str__(self):
         return f"{self.product_name},{self.quantity},{self.price}"
