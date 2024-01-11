@@ -9,6 +9,19 @@
     <input type="text" name="keyword" value="{{keyword}}"/>
     <button type="submit" class="btn btn-primary">Tim kiem</button>
 </form>
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Sap xep
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="?sort=-created_at{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Moi nhat</a></li>
+      <li><a class="dropdown-item" href="?sort=created_at{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Cu nhat</a></li>
+      <li><a class="dropdown-item" href="?sort=price{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Gia thap nhat</a></li>
+      <li><a class="dropdown-item" href="?sort=-price{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Gia cao nhat</a></li>
+    </ul>
+  </div>
+
 <hr/>
 
 {% for item in product_list %}
@@ -31,11 +44,11 @@
 </p>
 {% endif %}
 
-{% if item.url %}
+{% comment %} {% if item.url %}
 <p>Video:
 <iframe width="560" height="315" src="{{ item.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </p>
-{% endif %}
+{% endif %} {% endcomment %}
 
 <hr/>
 {% endfor %}
