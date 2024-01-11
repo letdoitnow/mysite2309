@@ -4,34 +4,41 @@
 <h1>Danh sach san pham</h1>
 <hr/>
 
-<form action="" method="GET">
-    {% csrf_token %}
-    <input type="text" name="keyword" value="{{keyword}}"/>
-    <button type="submit" class="btn btn-primary">Tim kiem</button>
-</form>
-
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Sap xep
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="?sort=-created_at{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Moi nhat</a></li>
-      <li><a class="dropdown-item" href="?sort=created_at{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Cu nhat</a></li>
-      <li><a class="dropdown-item" href="?sort=price{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Gia thap nhat</a></li>
-      <li><a class="dropdown-item" href="?sort=-price{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Gia cao nhat</a></li>
-    </ul>
-  </div>
-
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      So luong
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="?limit=2{% for k, v in request.GET.items %}{% if k != 'limit' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">2</a></li>
-      <li><a class="dropdown-item" href="?limit=5{% for k, v in request.GET.items %}{% if k != 'limit' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">5</a></li>
-      <li><a class="dropdown-item" href="?limit=10{% for k, v in request.GET.items %}{% if k != 'limit' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">10</a></li>
-    </ul>
-  </div>
+<div class="row">
+    <div class="col">
+        <!-- Search Start -->
+        <form action="" method="GET">
+            {% csrf_token %}
+            <input type="text" name="keyword" value="{{keyword}}" placeholder="tu khoa"/>
+            <button type="submit" class="btn btn-primary">Tim kiem</button>
+        </form>
+    </div>
+    <div class="col d-flex justify-content-end">
+        <!-- Sort Start -->
+        <div class="dropdown mx-2">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sap xep
+            </button>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="?sort=-created_at{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Moi nhat</a></li>
+            <li><a class="dropdown-item" href="?sort=created_at{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Cu nhat</a></li>
+            <li><a class="dropdown-item" href="?sort=price{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Gia thap nhat</a></li>
+            <li><a class="dropdown-item" href="?sort=-price{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Gia cao nhat</a></li>
+            </ul>
+        </div>
+        <!-- Limit Start -->
+        <div class="dropdown mx-2">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            So luong
+            </button>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="?limit=2{% for k, v in request.GET.items %}{% if k != 'limit' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">2</a></li>
+            <li><a class="dropdown-item" href="?limit=5{% for k, v in request.GET.items %}{% if k != 'limit' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">5</a></li>
+            <li><a class="dropdown-item" href="?limit=10{% for k, v in request.GET.items %}{% if k != 'limit' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">10</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <hr/>
 
@@ -63,5 +70,21 @@
 
 <hr/>
 {% endfor %}
+
+<nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item disabled">
+        <a class="page-link">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="#">2</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
 
 {% endblock %}
