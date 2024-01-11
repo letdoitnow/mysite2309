@@ -24,6 +24,14 @@ def product_list(request):
 
     product_list = product_list.order_by(sort)
 
+    # limit
+    limit = request.GET.get("limit")
+    if limit not in ["2", "5", "10"]:
+        limit = settings.DEFAULT_LIMIT
+    limit = int(limit)
+
+    product_list = product_list[:limit]
+
     context = {
         "product_list": product_list,
         "keyword": keyword if keyword else "",

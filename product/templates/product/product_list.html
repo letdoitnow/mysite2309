@@ -22,6 +22,17 @@
     </ul>
   </div>
 
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      So luong
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="?limit=2{% for k, v in request.GET.items %}{% if k != 'limit' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">2</a></li>
+      <li><a class="dropdown-item" href="?limit=5{% for k, v in request.GET.items %}{% if k != 'limit' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">5</a></li>
+      <li><a class="dropdown-item" href="?limit=10{% for k, v in request.GET.items %}{% if k != 'limit' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">10</a></li>
+    </ul>
+  </div>
+
 <hr/>
 
 {% for item in product_list %}
