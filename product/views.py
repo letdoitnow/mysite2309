@@ -36,7 +36,7 @@ def product_list(request):
     # paging
     product_list_paginator = Paginator(product_list, limit)
 
-    product_list_paging = product_list_paginator.page(3)
+    product_list_paging = product_list_paginator.page(1)
 
 
     context = {
