@@ -88,3 +88,9 @@ def product_edit(request, id):
         "form": form
     }
     return render(request, 'product/product_edit.html', context)
+
+
+def product_delete(request, id):
+    model = ProductModel.objects.get(pk=id)
+    model.delete()
+    return redirect("product:product_list")
