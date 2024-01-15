@@ -4,7 +4,11 @@
 <h1>Them moi san pham</h1>
 <hr/>
 
-
+<form action="" method="POST">
+    {% csrf_token %}
+    
+    <input class="btn btn-primary" type="submit" value="Xac nhan">
+</form>
 
 {% endblock content %}
 
