@@ -4,7 +4,7 @@ from .models import ProductModel
 from django.db.models import Q
 from django.conf import settings
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from .forms import ProductForm
+from .forms import ProductForm, ProductModelForm
 
 # Create your views here.
 def product_list(request):
@@ -61,10 +61,10 @@ def product_detail(request, id):
     return render(request, "product/product_detail.html", context)
 
 def product_add(request):
-    form = ProductForm()
+    form = ProductModelForm()
 
     if request.method == "POST":
-        form = ProductForm(request.POST)
+        form = ProductModelForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("product:product_list")

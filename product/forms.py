@@ -17,4 +17,9 @@ class ProductForm(forms.Form):
             quantity = self.cleaned_data["so_luong"],
         )
         model.save()
+
+class ProductModelForm(forms.ModelForm):
+    class Meta:
+        model = ProductModel
+        fields = ["product_name", "summary", "description", "price", "quantity"]
     
