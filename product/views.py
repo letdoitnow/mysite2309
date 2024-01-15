@@ -58,3 +58,9 @@ def product_detail(request, id):
         "product": product
     }
     return render(request, "product/product_detail.html", context)
+
+def product_add(request):
+    context = {
+
+    }
+    return render(request, 'product/product_add.html', context)
