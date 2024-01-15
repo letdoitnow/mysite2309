@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import ProductModel
 from django.db.models import Q
 from django.conf import settings
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # Create your views here.
 def product_list(request):
@@ -34,10 +34,15 @@ def product_list(request):
     # product_list = product_list[:limit]
 
     # paging
+    page = request.GET.get("page")
     product_list_paginator = Paginator(product_list, limit)
 
-    product_list_paging = product_list_paginator.page(1)
-
+    try:
+        product_list_paging = product_list_paginator.page(page)
+    except PageNotAnInteger:
+        product_list_paging = product_list_paginator.page(1)
+    except EmptyPage:
+        product_list_paging = product_list_paginator.page(product_list_paginator.num_pages)
 
     context = {
         "product_list": product_list_paging,
