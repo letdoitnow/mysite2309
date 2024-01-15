@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import ProductModel
 from django.db.models import Q
 from django.conf import settings
+from django.core.paginator import Paginator
 
 # Create your views here.
 def product_list(request):
@@ -30,10 +31,16 @@ def product_list(request):
         limit = settings.DEFAULT_LIMIT
     limit = int(limit)
 
-    product_list = product_list[:limit]
+    # product_list = product_list[:limit]
+
+    # paging
+    product_list_paginator = Paginator(product_list, limit)
+
+    product_list_paging = product_list_paginator.page(3)
+
 
     context = {
-        "product_list": product_list,
+        "product_list": product_list_paging,
         "keyword": keyword if keyword else "",
     }
 
