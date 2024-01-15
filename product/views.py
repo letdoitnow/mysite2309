@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import ProductModel
 from django.db.models import Q
@@ -62,6 +62,13 @@ def product_detail(request, id):
 
 def product_add(request):
     form = ProductForm()
+
+    if request.method == "POST":
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("product:product_list")
+
     context = {
         "form": form
     }
