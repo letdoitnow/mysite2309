@@ -73,3 +73,18 @@ def product_add(request):
         "form": form
     }
     return render(request, 'product/product_add.html', context)
+
+def product_edit(request, id):
+    model = ProductModel.objects.get(pk=id)
+    form = ProductModelForm(instance=model)
+
+    if request.method == "POST":
+        form = ProductModelForm(request.POST, instance=model)
+        if form.is_valid():
+            form.save()
+            return redirect("product:product_detail", id)
+
+    context = {
+        "form": form
+    }
+    return render(request, 'product/product_edit.html', context)

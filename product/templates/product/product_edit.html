@@ -1,0 +1,14 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<h1>Cap nhat san pham</h1>
+<hr/>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" value="Xac nhan">
+</form>
+
+{% endblock content %}
+

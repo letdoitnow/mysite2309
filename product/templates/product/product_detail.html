@@ -16,6 +16,8 @@
 {% endif %}
 
 <br/>
+<a class="btn btn-primary" href="{% url 'product:product_edit' product.id %}" role="button">Cap nhat</a>
+<br/>
 <a href="{% url 'product:product_list' %}">Quay lai danh sach</a>
 
 {% endblock %}
