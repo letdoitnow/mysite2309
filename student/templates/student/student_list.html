@@ -1,0 +1,17 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<h1>Danh sach sinh vien</h1>
+<hr/>
+
+{% for item in students %}
+<h3>{{ item.last_name }} {{item.first_name}}</h3>
+<p>{{ item.mark_math }}</p>
+<p>{{ item.mark_literature }}</p>
+<p>{{ item.english }}</p>
+<hr/>
+{% endfor %}
+
+
+{% endblock %}
+
