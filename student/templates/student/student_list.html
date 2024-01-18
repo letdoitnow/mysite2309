@@ -4,13 +4,20 @@
 <h1>Danh sach sinh vien</h1>
 <hr/>
 
+<div class="row">
 {% for sv in students %}
-<h3><a href="{% url 'student:student_detail' sv.id %}">{{ sv.last_name }} {{sv.first_name}}</a></h3>
-<p>{{ sv.mark_math }}</p>
-<p>{{ sv.mark_literature }}</p>
-<p>{{ sv.english }}</p>
-<hr/>
+<div class="col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 18rem;">
+        <img src="https://placehold.co/150x100" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title"><a href="{% url 'student:student_detail' sv.id %}">{{ sv.last_name }} {{sv.first_name}}</a></h5>
+        <p class="card-text">Toan: {{ sv.mark_math }}, Van: {{ sv.mark_literature }}, Anh: {{ sv.english }}</p>
+        {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+        </div>
+    </div>
+</div>
 {% endfor %}
+</div>
 
 
 {% endblock %}
