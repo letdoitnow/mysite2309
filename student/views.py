@@ -9,3 +9,10 @@ def student_list(request):
         "students": students
     }
     return render(request, 'student/student_list.html', context)
+
+def student_detail(request, id):
+    sv = StudentModel.objects.get(id=id)
+    context = {
+        "sv": sv
+    }
+    return render(request, 'student/student_detail.html', context)

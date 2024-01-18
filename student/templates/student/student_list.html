@@ -4,11 +4,11 @@
 <h1>Danh sach sinh vien</h1>
 <hr/>
 
-{% for item in students %}
-<h3>{{ item.last_name }} {{item.first_name}}</h3>
-<p>{{ item.mark_math }}</p>
-<p>{{ item.mark_literature }}</p>
-<p>{{ item.english }}</p>
+{% for sv in students %}
+<h3><a href="{% url 'student:student_detail' sv.id %}">{{ sv.last_name }} {{sv.first_name}}</a></h3>
+<p>{{ sv.mark_math }}</p>
+<p>{{ sv.mark_literature }}</p>
+<p>{{ sv.english }}</p>
 <hr/>
 {% endfor %}
 
