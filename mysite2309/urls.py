@@ -26,6 +26,7 @@ urlpatterns = [
     path('tin-tuc/', include('news.urls')),
     path('blog/', include('blog.urls')),
     path('san-pham/', include('product.urls')),
+    path('sinh-vien/', include('student.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
