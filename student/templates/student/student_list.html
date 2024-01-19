@@ -1,13 +1,14 @@
 {% extends "home/base.html" %}
 
 {% block content %}
+<div class="container">
 <h1>Danh sach sinh vien</h1>
 <hr/>
 
-<div class="row">
+<div class="row justify-content-center gap-2">
 {% for sv in students %}
 <div class="col-12 col-md-6 col-lg-3">
-    <div class="card" style="width: 18rem;">
+    <div class="card">
         <img src="https://placehold.co/150x100" class="card-img-top" alt="...">
         <div class="card-body">
         <h5 class="card-title"><a href="{% url 'student:student_detail' sv.id %}">{{ sv.last_name }} {{sv.first_name}}</a></h5>
@@ -21,4 +22,4 @@
 
 
 {% endblock %}
-
+</div>
