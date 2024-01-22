@@ -36,6 +36,12 @@ def student_update(request, id):
     model = StudentModel.objects.get(pk=id)
     form = StudentForm(instance=model)
 
+    if request.method == "POST":
+        form = StudentForm(request.POST, instance=model)
+        if form.is_valid():
+            form.save()
+            return redirect("student:student_detail", id)
+
     context = {
         "form": form
     }
