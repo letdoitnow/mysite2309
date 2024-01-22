@@ -1,13 +1,25 @@
 from django.shortcuts import render, redirect
 from .models import StudentModel
 from .forms import StudentForm
+from django.db.models import Q
 
 # Create your views here.
 def student_list(request):
-    students = StudentModel.objects.all().order_by("-created_at")
+    # search
+    keyword = request.GET.get("keyword")
+    if keyword:
+        students = StudentModel.objects.filter(
+            Q(last_name__contains=keyword)
+            | Q(first_name__contains=keyword)
+        )
+    else:
+        students = StudentModel.objects.all()
+    
+    students = students.order_by("-created_at")
 
     context = {
-        "students": students
+        "students": students,
+        "keyword": keyword if keyword else "",
     }
     return render(request, 'student/student_list.html', context)
 

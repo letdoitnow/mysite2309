@@ -7,6 +7,18 @@
 <a class="btn btn-success" href="{% url 'student:student_add' %}" role="button">Them moi</a>
 <hr/>
 
+<div class="row">
+    <div class="col">
+        <!-- Search Start -->
+        <form action="" method="GET">
+            {% csrf_token %}
+            <input type="text" name="keyword" value="{{keyword}}" placeholder="tu khoa"/>
+            <button type="submit" class="btn btn-primary">Tim kiem</button>
+        </form>
+    </div>
+</div>
+<hr/>
+
 <div class="row justify-content-center gap-2">
 {% for sv in students %}
 <div class="col-12 col-md-6 col-lg-3">
