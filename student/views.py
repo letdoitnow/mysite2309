@@ -31,3 +31,12 @@ def student_add(request):
         "form": form
     }
     return render(request, 'student/student_add.html', context)
+
+def student_update(request, id):
+    model = StudentModel.objects.get(pk=id)
+    form = StudentForm(instance=model)
+
+    context = {
+        "form": form
+    }
+    return render(request, 'student/student_update.html', context)
