@@ -18,10 +18,17 @@ def student_list(request):
 
     # sort
     sort = request.GET.get("sort")
-    if sort not in ["first_name", "-mark_math", "-mark_literature", "-mark_english"]:
+    if sort not in ["first_name", "-mark_math", "-mark_literature", "-mark_english", "-mark_total"]:
         sort = settings.DEFAULT_SORT
-    
-    students = students.order_by(sort)
+
+    if sort == "-mark_total":
+        students = sorted(
+            students, 
+            key=lambda sv:sum([sv.mark_math, sv.mark_literature, sv.mark_english]), 
+            reverse=True
+        )
+    else:
+        students = students.order_by(sort)
 
     context = {
         "students": students,
