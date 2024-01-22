@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import StudentModel
 from .forms import StudentForm
 from django.db.models import Q
+from django.conf import settings
 
 # Create your views here.
 def student_list(request):
@@ -14,8 +15,13 @@ def student_list(request):
         )
     else:
         students = StudentModel.objects.all()
+
+    # sort
+    sort = request.GET.get("sort")
+    if sort not in ["first_name", "-mark_math", "-mark_literature", "-mark_english"]:
+        sort = settings.DEFAULT_SORT
     
-    students = students.order_by("-created_at")
+    students = students.order_by(sort)
 
     context = {
         "students": students,
