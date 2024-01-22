@@ -3,6 +3,11 @@
 {% block content %}
 <h1>Dang ky thanh vien</h1>
 <hr/>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" value="Xac nhan">
+</form>
 
 {% endblock %}
 
