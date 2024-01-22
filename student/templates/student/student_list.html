@@ -12,7 +12,7 @@
         <img src="https://placehold.co/150x100" class="card-img-top" alt="...">
         <div class="card-body">
         <h5 class="card-title"><a href="{% url 'student:student_detail' sv.id %}">{{ sv.last_name }} {{sv.first_name}}</a></h5>
-        <p class="card-text">Toan: {{ sv.mark_math }}, Van: {{ sv.mark_literature }}, Anh: {{ sv.english }}</p>
+        <p class="card-text">Toan: {{ sv.mark_math }}, Van: {{ sv.mark_literature }}, Anh: {{ sv.mark_english }}</p>
         {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
         </div>
     </div>
