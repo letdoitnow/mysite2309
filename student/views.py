@@ -46,3 +46,8 @@ def student_update(request, id):
         "form": form
     }
     return render(request, 'student/student_update.html', context)
+
+def student_delete(request, id):
+    model = StudentModel.objects.get(pk=id)
+    model.delete()
+    return redirect("student:student_list")

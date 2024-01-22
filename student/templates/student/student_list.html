@@ -4,6 +4,8 @@
 <div class="container">
 <h1>Danh sach sinh vien</h1>
 <hr/>
+<a class="btn btn-success" href="{% url 'student:student_add' %}" role="button">Them moi</a>
+<hr/>
 
 <div class="row justify-content-center gap-2">
 {% for sv in students %}
