@@ -16,6 +16,20 @@
             <button type="submit" class="btn btn-primary">Tim kiem</button>
         </form>
     </div>
+    <div class="col d-flex justify-content-end">
+        <!-- Sort Start -->
+        <div class="dropdown mx-2">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sap xep
+            </button>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="?sort=first_name{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Ten</a></li>
+            <li><a class="dropdown-item" href="?sort=-mark_math{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Diem Toan</a></li>
+            <li><a class="dropdown-item" href="?sort=-mark_literature{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Diem Van</a></li>
+            <li><a class="dropdown-item" href="?sort=-mark_english{% for k, v in request.GET.items %}{% if k != 'sort' %}&{{ k }}={{ v }}{% endif %}{% endfor %}">Diem Anh</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 <hr/>
 
