@@ -14,3 +14,7 @@ class StudentModel(models.Model):
 
     def __str__(self):
         return self.first_name
+    
+    @property
+    def mark_total(self):
+        return self.mark_math + self.mark_literature + self.mark_english

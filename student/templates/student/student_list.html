@@ -41,6 +41,7 @@
         <div class="card-body">
         <h5 class="card-title"><a href="{% url 'student:student_detail' sv.id %}">{{ sv.last_name }} <b> {{sv.first_name}} </b></a></h5>
         <p class="card-text">Toan: {{ sv.mark_math }}, Van: {{ sv.mark_literature }}, Anh: {{ sv.mark_english }}</p>
+        <p class="card-text"><strong>Tong diem: {{ sv.mark_total }}</strong></p>
         {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
         </div>
     </div>
