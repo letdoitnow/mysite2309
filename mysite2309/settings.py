@@ -156,3 +156,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_SORT = "-created_at"
 DEFAULT_LIMIT = 5
+LOGIN_URL = "/dang-nhap/"

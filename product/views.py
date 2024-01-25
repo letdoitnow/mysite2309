@@ -5,8 +5,10 @@ from django.db.models import Q
 from django.conf import settings
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .forms import ProductForm, ProductModelForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url=settings.LOGIN_URL)
 def product_list(request):
     # keyword
     keyword = request.GET.get("keyword")

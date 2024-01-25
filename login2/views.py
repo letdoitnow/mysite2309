@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def login2(request):
+    next = request.GET.get("next")
     error = ""
     if request.method == "POST":
         username = request.POST.get("username")
@@ -10,6 +11,8 @@ def login2(request):
         is_auth = authenticate(username=username, password=password)
         if is_auth:
             login(request, is_auth)
+            if next:
+                return redirect(next)    
             return redirect("home:home")
         
         error = "Tai khoan hoac Mat khau khong dung"
