@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'student',
     'register',
     'login2',
+    'logout2',
 ]
 
 MIDDLEWARE = [

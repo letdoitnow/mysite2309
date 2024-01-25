@@ -29,6 +29,7 @@ urlpatterns = [
     path('sinh-vien/', include('student.urls')),
     path('dang-ky/', include('register.urls')),
     path('dang-nhap/', include('login2.urls')),
+    path('dang-xuat/', include('logout2.urls')),
     
 ]
 
