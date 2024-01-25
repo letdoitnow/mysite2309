@@ -36,21 +36,20 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'student:student_list' %}">Sinh vien</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'register:register' %}">Dang ky</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'login2:login2' %}">Dang nhap</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout2:logout2' %}">Dang xuat</a>
-              </li>
-              
             </ul>
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+            <div class="text-end">
+              {% if not request.user.is_authenticated %}
+              <a class="btn btn-light text-dark ms-2 me-2" href="{% url 'login2:login2' %}">Dang nhap</a>
+              <a class="btn btn-primary me-2" href="{% url 'register:register' %}">Dang ky</a>
+              {% else %}
+              <a class="btn btn-primary ms-2 me-2">{{ request.user.first_name }} ({{ request.user.username }})</a>
+              <a class="btn btn-light text-dark me-2" href="{% url 'logout2:logout2' %}">Dang xuat</a>
+              {% endif%}
+            </div>
           </div>
         </div>
       </nav>
