@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 
 class RegisterForm(forms.Form):
-    username = forms.EmailField(label="Tai khoan", max_length=50, required=True)
+    username = forms.EmailField(label="Tai khoan Email", max_length=50, required=True)
     password1 = forms.CharField(label="Mat khau", widget=forms.PasswordInput, required=True)
     password2 = forms.CharField(label="Xac nhan Mat khau", widget=forms.PasswordInput, required=True)
     last_name = forms.CharField(label="Ho")
