@@ -28,6 +28,8 @@ urlpatterns = [
     path('san-pham/', include('product.urls')),
     path('sinh-vien/', include('student.urls')),
     path('dang-ky/', include('register.urls')),
+    path('dang-nhap/', include('login2.urls')),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
