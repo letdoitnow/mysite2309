@@ -1,7 +1,9 @@
 from django.db import models
+from category.models import CategoryModel
 
 # Create your models here.
 class ProductModel(models.Model):
+    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, null=True, blank=True)
     product_name = models.CharField(max_length=100)
     summary = models.CharField(max_length=500, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
