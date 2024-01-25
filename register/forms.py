@@ -1,5 +1,6 @@
 from django import forms 
 from django.contrib.auth.models import User
+from customer.models import CustomerModel
 
 class RegisterForm(forms.Form):
     username = forms.EmailField(label="Tai khoan Email", max_length=50, required=True)
@@ -25,11 +26,14 @@ class RegisterForm(forms.Form):
         raise forms.ValidationError("Username da ton tai trong he thong")
     
     def save(self):
-        User.objects.create_user(
+        user = User.objects.create_user(
             username=self.cleaned_data["username"],
             password=self.cleaned_data["password1"],
-            email = self.cleaned_data["username"],
-            last_name = self.cleaned_data["last_name"],
-            first_name = self.cleaned_data["first_name"],
             # is_staff=True,
         )
+        customer = CustomerModel(
+            user=user,
+            last_name=self.cleaned_data['last_name'],
+            first_name=self.cleaned_data['first_name'],
+        )
+        customer.save()
