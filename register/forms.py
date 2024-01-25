@@ -2,10 +2,9 @@ from django import forms
 from django.contrib.auth.models import User
 
 class RegisterForm(forms.Form):
-    username = forms.CharField(label="Tai khoan", max_length=50, required=True)
+    username = forms.EmailField(label="Tai khoan", max_length=50, required=True)
     password1 = forms.CharField(label="Mat khau", widget=forms.PasswordInput, required=True)
     password2 = forms.CharField(label="Xac nhan Mat khau", widget=forms.PasswordInput, required=True)
-    email = forms.EmailField()
     last_name = forms.CharField(label="Ho")
     first_name = forms.CharField(label="Ten")
 
@@ -29,7 +28,7 @@ class RegisterForm(forms.Form):
         User.objects.create_user(
             username=self.cleaned_data["username"],
             password=self.cleaned_data["password1"],
-            email = self.cleaned_data["email"],
+            email = self.cleaned_data["username"],
             last_name = self.cleaned_data["last_name"],
             first_name = self.cleaned_data["first_name"],
             # is_staff=True,
