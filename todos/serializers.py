@@ -4,4 +4,4 @@ from .models import TodosModel
 class TodosSerializer(serializers.ModelSerializer):
     class Meta:
         model = TodosModel
-        fields = ["id", "title", "summary", "description", "status"]
+        fields = ["id", "title", "summary", "description"]
