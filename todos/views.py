@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import TodosModel
 from .serializers import TodosSerializer
+import requests
 
 # Create your views here.
 @api_view(["GET", "POST"])
@@ -46,7 +47,12 @@ def todos_detail_api(request, id):
         return Response()
 
 def todos_list(request):
-    todos = TodosModel.objects.all()
+    # todos = TodosModel.objects.all()
+    
+    api_url = "http://localhost:8888/cong-viec/api/"
+    api_response = requests.get(api_url)
+    todos = api_response.json()
+
     context = {
         'todos': todos
     }
