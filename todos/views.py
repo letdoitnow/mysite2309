@@ -11,3 +11,9 @@ def todos_list(request):
     model = TodosModel.objects.all()
     serializer = TodosSerializer(model, many=True)
     return Response(data=serializer.data)
+
+@api_view(["GET"])
+def todos_detail(request, id):
+    model = TodosModel.objects.get(id=id)
+    serializer = TodosSerializer(model)
+    return Response(data=serializer.data)
