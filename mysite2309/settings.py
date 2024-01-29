@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'logout2',
     'customer',
     'category',
+    'orders',
+    'orders_detail',
 ]
 
 MIDDLEWARE = [
