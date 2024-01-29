@@ -46,7 +46,8 @@ def todos_detail_api(request, id):
         return Response()
 
 def todos_list(request):
+    todos = TodosModel.objects.all()
     context = {
-
+        'todos': todos
     }
     return render(request, 'todos/todos_list.html', context)

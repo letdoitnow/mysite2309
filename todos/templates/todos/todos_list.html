@@ -1,5 +1,14 @@
 {% extends "home/base.html" %}
 
 {% block content %}
-Todos page
+<h1>Danh sach cong viec</h1>
+<hr/>
+
+{% for todo in todos %}
+<h3>{{ todo.title }}</h3>
+<p>{{ todo.summary }}</p>
+<p>{{ todo.description }}</p>
+<hr/>
+{% endfor %}
+
 {% endblock %}
