@@ -7,7 +7,7 @@ from .serializers import TodosSerializer
 
 # Create your views here.
 @api_view(["GET", "POST"])
-def todos_list(request):
+def todos_list_api(request):
     if request.method == "GET":
         model = TodosModel.objects.all()
         serializer = TodosSerializer(model, many=True)
@@ -23,7 +23,7 @@ def todos_list(request):
 
 
 @api_view(["GET", "PUT", "DELETE"])
-def todos_detail(request, id):
+def todos_detail_api(request, id):
     try:
         model = TodosModel.objects.get(id=id)
     except TodosModel.DoesNotExist:
@@ -44,3 +44,9 @@ def todos_detail(request, id):
     if request.method == "DELETE":
         model.delete()
         return Response()
+
+def todos_list(request):
+    context = {
+
+    }
+    return render(request, 'todos/todos_list.html', context)
