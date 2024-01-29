@@ -22,8 +22,25 @@ def todos_list(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(["GET"])
+@api_view(["GET", "PUT", "DELETE"])
 def todos_detail(request, id):
-    model = TodosModel.objects.get(id=id)
-    serializer = TodosSerializer(model)
-    return Response(data=serializer.data)
+    try:
+        model = TodosModel.objects.get(id=id)
+    except TodosModel.DoesNotExist:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+    if request.method == "GET":
+        serializer = TodosSerializer(model)
+        return Response(data=serializer.data)
+    
+    if request.method == "PUT":
+        serializer = TodosSerializer(model, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response()
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    if request.method == "DELETE":
+        model.delete()
+        return Response()
