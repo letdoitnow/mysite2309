@@ -163,3 +163,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_SORT = "-created_at"
 DEFAULT_LIMIT = 5
 LOGIN_URL = "/dang-nhap/"
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
