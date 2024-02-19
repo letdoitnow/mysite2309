@@ -9,8 +9,11 @@ from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 @api_view(["GET", "POST"])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def todos_list_api(request):
+    # if request.user.id != 1:
+    #     return Response({}, status=status.HTTP_403_FORBIDDEN)
+    
     if request.method == "GET":
         model = TodosModel.objects.all()
         serializer = TodosSerializer(model, many=True)
@@ -26,7 +29,7 @@ def todos_list_api(request):
 
 
 @api_view(["GET", "PUT", "DELETE"])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def todos_detail_api(request, id):
     try:
         model = TodosModel.objects.get(id=id)
