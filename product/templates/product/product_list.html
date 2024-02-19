@@ -47,11 +47,14 @@
 <h3><a href="{% url 'product:product_detail' item.id %}">{{ item.product_name }}</a></h3>
 
 {% if item.summary %}
-<p>{{ item.summary }}</p>
+<p>summary: {{ item.summary }}</p>
 {% endif %}
 
-<p>{{ item.quantity }}</p>
-<p>{{ item.price }}</p>
+<p>quantity: {{ item.quantity }}</p>
+<p>price: {{ item.price }}</p>
+
+<a class="btn btn-success" href="#" role="button">Them vao gio hang</a>
+<a class="btn btn-success" href="{% url 'checkout:checkout' item.id %}" role="button">Mua ngay</a>
 
 {% if item.image %}
 <p>Image:
