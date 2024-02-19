@@ -22,22 +22,22 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'home:home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/gioi-thieu/">About</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'home:about' %}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/blog/">Post</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}" href="{% url 'blog:blog' %}">Post</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'product:product_list' %}">Product</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'product_list' %}active{% endif %}" href="{% url 'product:product_list' %}">Product</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'student:student_list' %}">Student</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'student_list' %}active{% endif %}" href="{% url 'student:student_list' %}">Student</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'todos:todos_list' %}">Todos</a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'todos_list' %}active{% endif %}" href="{% url 'todos:todos_list' %}">Todos</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
