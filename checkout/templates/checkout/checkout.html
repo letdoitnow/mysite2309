@@ -1,6 +1,112 @@
 {% extends "home/base.html" %}
 
 {% block content %}
-Checkout page
-{{ id }}
+<div class="container">
+    <h1>Checkout Page</h1>
+    <hr/>
+    <section class="h-100 h-custom" style="background-color: #eee;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card">
+                <div class="card-body p-4">
+        
+                    <div class="row">
+        
+                    <div class="col-lg-7">
+                        <h5 class="mb-3"><a href="{% url 'product:product_list' %}" class="text-body"><i
+                            class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a></h5>
+                        <hr>
+        
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <p class="mb-1">Shopping cart</p>
+                        </div>
+                        </div>
+        
+                        <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-row align-items-center">
+                                <div>
+                                <img
+                                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                                    class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                                </div>
+                                <div class="ms-3">
+                                <h5>{{product.product_name}}</h5>
+                                <p class="small mb-0">{{product.description}}</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row align-items-center">
+                                <div style="width: 30px;">
+                                <h5 class="fw-normal mb-0">1</h5>
+                                </div>
+                                <div style="width: 120px;">
+                                <h5 class="mb-0">{{product.price}}</h5>
+                                </div>
+                                <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+        
+                    </div>
+                    <div class="col-lg-5">
+        
+                        <div class="card bg-primary text-white rounded-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="mb-0">THONG TIN DON HANG</h5>
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
+                                class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
+                            </div>
+        
+                            <p class="form-label" for="typeName">{{customer.last_name}} {{customer.first_name}}</p>
+                            <p class="form-label" for="typeName">{{customer.address}}</p>
+                            <p class="form-label" for="typeName">{{customer.phone_number}}</p>
+                            
+                            <hr class="my-4">
+        
+                            <div class="d-flex justify-content-between">
+                            <p class="mb-2">Subtotal</p>
+                            <p class="mb-2">order_detail|</p>
+                            </div>
+        
+                            <div class="d-flex justify-content-between">
+                            <p class="mb-2">Shipping</p>
+                            <p class="mb-2">
+                            </p>
+                            </div>
+        
+                            <div class="d-flex justify-content-between mb-4">
+                            <p class="mb-2">Total(Incl. taxes)</p>
+                            <p class="mb-2">
+                                order_detail
+                            </p>
+                            </div>
+                            
+                            <form class="mt-4" action="#" method="POST">
+                                {% csrf_token %}
+                                <div class="form-outline form-white mb-4">
+                                    <input type="text" id="typeName" class="form-control form-control-lg" size="17"
+                                    placeholder="Ghi chu don hang" name="description" />
+                                </div>
+                                <input type="submit" type="button" class="btn btn-info btn-block btn-lg" value="Xac nhan don hang" />
+                            </form>
+        
+                        </div>
+                        </div>
+        
+                    </div>
+        
+                    </div>
+        
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+</div>
 {% endblock %}
