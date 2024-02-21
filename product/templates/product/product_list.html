@@ -53,8 +53,8 @@
 <p>quantity: {{ item.quantity }}</p>
 <p>price: {{ item.price }}</p>
 
-<a class="btn btn-success" href="#" role="button">Them vao gio hang</a>
-<a class="btn btn-success" href="{% url 'checkout:checkout' item.id %}" role="button">Mua ngay</a>
+<a data-item-id="{{item.id}}" class="btn btn-success add-to-cart" href="#" role="button">Them vao gio hang</a>
+<a class="btn btn-success" href="{% url 'cart:buy_now' item.id %}" role="button">Mua ngay</a>
 
 {% if item.image %}
 <p>Image:

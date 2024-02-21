@@ -6,6 +6,7 @@ from django.conf import settings
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .forms import ProductForm, ProductModelForm
 from django.contrib.auth.decorators import login_required
+from cart.views import get_total_number_item_in_cart
 
 # Create your views here.
 @login_required(login_url=settings.LOGIN_URL)
@@ -50,6 +51,7 @@ def product_list(request):
     context = {
         "product_list": product_list_paging,
         "keyword": keyword if keyword else "",
+        "cart": get_total_number_item_in_cart(request),
     }
 
     return render(request, "product/product_list.html", context)

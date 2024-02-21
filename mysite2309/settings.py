@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'todos',
     'rest_framework',
     'checkout',
+    'cart',
 ]
 
 MIDDLEWARE = [
