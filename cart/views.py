@@ -47,6 +47,10 @@ def order(request, id):
     return render(request, 'cart/order.html', context)
 
 def add_to_cart(request, id):
+    add_to_cart_common(request, id)
+    return redirect("cart:cart")
+
+def add_to_cart_common(request, id):
     product = ProductModel.objects.get(id=id)
     customer = CustomerModel.objects.get(user=request.user)
 
@@ -71,5 +75,3 @@ def add_to_cart(request, id):
     order_detail.quantity = order_detail.quantity + 1 if order_detail.quantity else 1
     order_detail.price = product.price
     order_detail.save()
-
-    return redirect("cart:cart")
