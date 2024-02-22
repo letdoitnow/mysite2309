@@ -6,6 +6,7 @@ from customer.models import CustomerModel
 from orders.models import OrdersModel
 from orders_detail.models import OrdersDetailModel
 from product.models import ProductModel
+from django.db.models import Avg, Count, Sum
 
 
 # Create your views here.
@@ -26,6 +27,7 @@ def cart(request):
         "customer": customer,
         "order": order,
         "order_detail": order_detail,
+        "cart": get_total_number_item_in_cart(request),
     }
     return render(request, 'cart/cart.html', context)
 
@@ -75,3 +77,14 @@ def add_to_cart_common(request, id):
     order_detail.quantity = order_detail.quantity + 1 if order_detail.quantity else 1
     order_detail.price = product.price
     order_detail.save()
+
+def get_total_number_item_in_cart(request):
+    customer = CustomerModel.objects.get(user=request.user)
+    # order - 0 - draft
+    order = OrdersModel.objects.filter(
+        customer = customer,
+        status = 0
+    ).first()
+    total_items = OrdersDetailModel.objects.filter(orders=order).aggregate(Sum('quantity'))
+    total_items = list(total_items.values())[0]
+    return total_items
