@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import OrdersDetail
+from .models import OrdersDetailModel
 
 # Register your models here.
-admin.site.register(OrdersDetail)
+admin.site.register(OrdersDetailModel)
