@@ -98,16 +98,17 @@
                         <p class="mb-2">{{ order_detail|subtotal|add:100000|floatformat:"0g" }}</p>
                       </div>
   
-
-                      <form class="mt-4" action="" method="POST">
+                      {% if order %}
+                      <form class="mt-4" action="{% url 'cart:order' order.id%}" method="POST">
                         {% csrf_token %}
                         <div class="form-outline form-white mb-4">
                           <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                            placeholder="Ghi chu don hang" />
+                            placeholder="Ghi chu don hang" name="description" />
                         </div>
                         
                         <input type="submit" class="btn btn-info btn-block btn-lg" value="DAT HANG" />
                       </form>
+                      {% endif %}
   
                     </div>
                   </div>

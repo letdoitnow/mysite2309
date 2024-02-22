@@ -1,0 +1,10 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+{% load custom_tags %}
+<div class="container">
+<h1>Order successful</h1>
+<hr/>
+<p>Ma don hang <b>{{ order.order_no }}</b></p>
+</div>
+{% endblock %}
