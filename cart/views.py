@@ -17,8 +17,13 @@ def cart(request):
         status = 0
     ).first()
 
+    # order detail
+    order_detail = OrdersDetailModel.objects.filter(orders=order)
+
 
     context = {
-        "customer": customer
+        "customer": customer,
+        "order": order,
+        "order_detail": order_detail,
     }
     return render(request, 'cart/cart.html', context)
