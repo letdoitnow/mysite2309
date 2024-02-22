@@ -54,7 +54,7 @@
 <p>price: {{ item.price }}</p>
 
 <a class="btn btn-success" href="#" role="button">Them vao gio hang</a>
-<a class="btn btn-success" href="#" role="button">Mua ngay</a>
+<a class="btn btn-success" href="{% url 'cart:add_to_cart' item.id %}" role="button">Mua ngay</a>
 
 {% if item.image %}
 <p>Image:

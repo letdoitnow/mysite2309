@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.shortcuts import render
 from customer.models import CustomerModel
 from orders.models import OrdersModel
 from orders_detail.models import OrdersDetailModel
+from product.models import ProductModel
 
 
 # Create your views here.
@@ -44,3 +45,31 @@ def order(request, id):
         "order": order
     }
     return render(request, 'cart/order.html', context)
+
+def add_to_cart(request, id):
+    product = ProductModel.objects.get(id=id)
+    customer = CustomerModel.objects.get(user=request.user)
+
+    order, created = OrdersModel.objects.get_or_create(
+        customer = customer,
+        status = 0
+    )
+
+    try:
+        order_detail = OrdersDetailModel.objects.get(
+            orders = order,
+            product = product
+        )
+    except OrdersDetailModel.DoesNotExist:
+        order_detail = OrdersDetailModel(
+            orders = order,
+            product = product,
+            quantity = 0,
+            price = product.price,
+        )
+    
+    order_detail.quantity = order_detail.quantity + 1 if order_detail.quantity else 1
+    order_detail.price = product.price
+    order_detail.save()
+
+    return redirect("cart:cart")
