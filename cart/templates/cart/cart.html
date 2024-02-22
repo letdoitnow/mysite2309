@@ -64,15 +64,19 @@
   
                       <div class="form-outline form-white mb-4">
                         <label class="form-label" for="typeName">Ho ten:</label>
-                        <strong>Nguyen Van A</strong>
+                        <strong>{{ customer.last_name }} {{ customer.first_name }}</strong>
                       </div>
                       <div class="form-outline form-white mb-4">
                         <label class="form-label" for="typeName">So dien thoai:</label>
-                        <strong>0987654321</strong>
+                        <strong>{{ customer.phone_number }}</strong>
                       </div>
                       <div class="form-outline form-white mb-4">
                         <label class="form-label" for="typeName">Dia chi:</label>
-                        <strong>Hoan Kiem, Ha Noi</strong>
+                        <strong>{{ customer.address }}</strong>
+                      </div>
+                      <div class="form-outline form-white mb-4">
+                        <label class="form-label" for="typeName">Mo ta:</label>
+                        <strong>{{ customer.description }}</strong>
                       </div>
                       
   
